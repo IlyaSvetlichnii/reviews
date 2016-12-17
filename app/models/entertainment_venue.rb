@@ -5,5 +5,8 @@ class EntertainmentVenue < ApplicationRecord
 	has_many :images
 	has_many :reviews
 
-	searchkick match: :word_start, searchable: [:title, :description]
+	def self.search(search)
+	  where("title LIKE ?", "%#{search}%") 
+	  where("description LIKE ?", "%#{search}%")
+	end
 end
