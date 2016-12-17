@@ -1,5 +1,6 @@
 class EntertainmentVenuesController < ApplicationController
   def index
+    @places = EntertainmentVenue.paginate(page: params[:page])
     @categories = Category.all
   	@entertainment_venues = EntertainmentVenue.all
   	  if params[:search]
@@ -14,5 +15,21 @@ class EntertainmentVenuesController < ApplicationController
   end
 
   def new
+    @entertainment_venue = EntertainmentVenue.new
   end
+
+  def create
+    @entertainment_venue = EntertainmentVenue.new(entertainment_venue_params)
+    if @entertainment_venue.save
+      redirect_to root_path
+    else
+    
+    end
+  end
+
+  private
+
+  def entertainment_venue_params
+    params.require(:entertainment_venue).permit(:title, :description, :accord, :user_id, :category_id, :image_id)
+  end 
 end

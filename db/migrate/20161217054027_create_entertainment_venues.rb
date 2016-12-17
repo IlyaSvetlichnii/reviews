@@ -3,6 +3,7 @@ class CreateEntertainmentVenues < ActiveRecord::Migration[5.0]
     create_table :entertainment_venues do |t|
       t.string :title
       t.text :description
+      t.boolean :accord
 
       t.timestamps
     end

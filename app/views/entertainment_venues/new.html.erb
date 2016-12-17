@@ -1,2 +1,8 @@
-<h1>EntertainmentVenues#new</h1>
-<p>Find me in app/views/entertainment_venues/new.html.erb</p>
+<%= simple_form_for @entertainment_venue, url: entertainment_venues_path do |f| %>
+	<%= f.input :title %>
+	<%= f.input :category_id, as: :select, collection: Category.all %>
+	<%= f.file_field :image_id %>
+	<%= f.input :description, as: :text %>
+	<%= f.input :accord, as: :boolean, checked_value: true, unchecked_value: false %>
+	<%= f.button :submit, "Создать" %>
+<% end %>
