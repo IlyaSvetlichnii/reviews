@@ -1,52 +1,27 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="http://localhost:3000/">Главная</a>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Ссылка</a></li>
-        <li><a href="#">Ссылка</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Действие</a></li>
-            <li><a href="#">Другое действие</a></li>
-            <li><a href="#">Что-то еще</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Отдельная ссылка</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Еще одна отдельная ссылка</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <%= render 'layouts/application/search' %>
-        </div>
-      </form>
+      <%= render 'layouts/application/search' %>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Ссылка</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Действие</a></li>
-            <li><a href="#">Другое действие</a></li>
-            <li><a href="#">Что-то еще</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Отдельная ссылка</a></li>
-          </ul>
-        </li>
+        <% if user_signed_in?%>
+          <li>
+            <%= link_to 'Добавить заведение', new_user_registration_path, class: 'btn btn-default navbar-btn' %>
+          </li>
+          <li>
+            <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'btn btn-default navbar-btn' %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-default navbar-btn' %>
+          </li>
+          <li>
+            <%= link_to 'Войти', new_user_session_path, class: 'btn btn-default navbar-btn' %>
+          </li>
+        <% end %>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>

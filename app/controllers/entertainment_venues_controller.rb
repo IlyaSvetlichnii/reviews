@@ -1,5 +1,6 @@
 class EntertainmentVenuesController < ApplicationController
   def index
+    @categories = Category.all
   	@entertainment_venues = EntertainmentVenue.all
   	  if params[:search]
 	    @entertainment_venues = EntertainmentVenue.search(params[:search]).order("created_at DESC")

@@ -1,3 +1,9 @@
-<% @entertainment_venues.each do |entertainment_venue| %>
-<%= link_to entertainment_venue.title, entertainment_venue_path(entertainment_venue) %>
+<% @categories.each do |category| %>
+	<%= link_to category.title, category_path(category) %>
 <% end %>
+
+<div class="col-md-12">	
+	<% @entertainment_venues.each do |entertainment_venue| %>
+		<%= link_to entertainment_venue.title, entertainment_venue_path(entertainment_venue) %>
+	<% end %>
+</div>
