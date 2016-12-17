@@ -1,0 +1,2 @@
+module EntertainmentVenuesHelper
+end
