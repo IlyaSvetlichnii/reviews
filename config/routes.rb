@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get 'entertainment_venues/index'
+  devise_for :users
+  root 'entertainment_venues#index'
+  
+  resources :entertainment_venues
 
-  get 'entertainment_venues/show'
-
-  get 'entertainment_venues/new'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
