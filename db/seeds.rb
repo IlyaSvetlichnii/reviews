@@ -3,3 +3,8 @@ User.create(name: "User", admin: false, status: "notactive", email: "user@gmail.
 User.create(name: "User_2", admin: false, status: "active", email: "user2@gmail.com", password: 123456, password_confirmation: 123456)
 User.create(name: "User_3", admin: false, status: "notactive", email: "user3@gmail.com", password: 123456, password_confirmation: 123456)
 User.create(name: "User_4", admin: false, status: "denied", email: "user4@gmail.com", password: 123456, password_confirmation: 123456)
+
+Category.create(title: "Cafes")
+Category.create(title: "Pubs")
+Category.create(title: "Taverns")
+Category.create(title: "Restaurants")

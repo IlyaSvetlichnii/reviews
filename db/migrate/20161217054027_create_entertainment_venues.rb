@@ -4,6 +4,7 @@ class CreateEntertainmentVenues < ActiveRecord::Migration[5.0]
       t.string :title
       t.text :description
       t.boolean :accord
+      t.boolean :status
 
       t.timestamps
     end

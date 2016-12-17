@@ -16,6 +16,7 @@ gem 'simple_form'
 gem "paperclip", "~> 5.0.0"
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'ratyrate'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -1,1 +1,63 @@
-<%= @entertainment_venue.title %>
+<div class="col-md-12">
+	<div class="col-md-6">
+		<h1>
+			<%= @entertainment_venue.title %></br>
+		</h1>	
+		<h3>
+			<%= @entertainment_venue.category.title %></br>
+		</h3>
+		<%= @entertainment_venue.description %>
+	</div>
+	<%= image_tag @entertainment_venue.avatar.url(:medium)%>
+</div>
+
+<div class="col-md-12">
+	<h1>Gallerry</h1></br>
+	<div>
+		<% @entertainment_venue.images.each do |image| %>
+			<%= image_tag image.picture.url(:thumb) %>
+		<% end %>
+	</div>
+</div>
+
+<h1>Reviews</h1></br>
+<div>
+	<% @entertainment_venue.reviews.each do |review| %>
+		<div class="col-md-12">
+	--------------------------------------</br>
+			<%= review.comment %> 
+			<div>
+				Еда: <%= review.food %>
+			</div>
+			<div>
+				Сервис: <%= review.service %>
+			</div>
+			<div>
+				Интерьер: <%= review.interior %>
+		</div>
+	<% end %>
+</div>
+
+
+<%= simple_form_for [@entertainment_venue, Review.new] do |f| %>
+	<%= f.input :comment, as: :text, placeholder: "Add a comment" %><br/>
+	<div class="col-md-2">
+		<%= f.input :food, as: :select, collection: 1..5 %>
+	</div>
+	<div class="col-md-2">
+		<%= f.input :service, as: :select, collection: 1..5 %>
+	</div>
+	<div class="col-md-2">
+		<%= f.input :interior, as: :select, collection: 1..5 %>
+	</div>
+	<%= f.hidden_field :user_id, value: current_user.id %>
+	<%= f.submit "Add Comment" %>
+<% end %>
+
+
+<!-- <div class="col-md-12">
+	<%= simple_form_for [@entertainment_venue, Image.new] do |f| %>
+		<%= f.file_field :picture %>
+		<%= f.submit "Upload" %>	
+	<% end %>
+</div> -->

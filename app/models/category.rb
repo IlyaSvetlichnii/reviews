@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
- has_many :entertainment_venues
+ has_many :entertainment_venues, dependent: :destroy
 end
 

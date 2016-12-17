@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   
   root 'entertainment_venues#index'
   
-  resources :entertainment_venues
   resources :categories
+  
+  resources :entertainment_venues do
+    resources :reviews
+    resources :images
+  end
 
   get '/user/accept' => 'acceptions#accept', as: 'accept'
   get '/user/reject' => 'acceptions#reject', as: 'reject'

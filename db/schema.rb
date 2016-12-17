@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161217090842) do
+ActiveRecord::Schema.define(version: 20161217112307) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -36,10 +36,15 @@ ActiveRecord::Schema.define(version: 20161217090842) do
     t.string   "title"
     t.text     "description"
     t.boolean  "accord"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "status"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "user_id"
     t.integer  "category_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["category_id"], name: "index_entertainment_venues_on_category_id"
     t.index ["user_id"], name: "index_entertainment_venues_on_user_id"
   end
@@ -56,6 +61,9 @@ ActiveRecord::Schema.define(version: 20161217090842) do
 
   create_table "reviews", force: :cascade do |t|
     t.string   "comment"
+    t.integer  "food"
+    t.integer  "service"
+    t.integer  "interior"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "user_id"

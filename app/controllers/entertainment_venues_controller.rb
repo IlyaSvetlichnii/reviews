@@ -16,6 +16,7 @@ class EntertainmentVenuesController < ApplicationController
 
   def new
     @entertainment_venue = EntertainmentVenue.new
+    @entertainment_venue.images.build
   end
 
   def create
@@ -30,6 +31,11 @@ class EntertainmentVenuesController < ApplicationController
   private
 
   def entertainment_venue_params
-    params.require(:entertainment_venue).permit(:title, :description, :accord, :user_id, :category_id, :image_id)
+    params.require(:entertainment_venue).permit(:title, 
+                                                :description, 
+                                                :accord, 
+                                                :user_id, 
+                                                :category_id, 
+                                                :avatar)
   end 
 end
