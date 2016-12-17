@@ -1,0 +1,2 @@
+class EntertainmentVenue < ApplicationRecord
+end
